@@ -16,32 +16,32 @@ public class CategoriesController {
     private CategoriesService categoriesService;
 
     @GetMapping
-    public ResponseEntity<List<CategoriesDto>> getAll(){
+    public ResponseEntity<List<CategoriesDto>> getAll() {
         return ResponseEntity.ok(categoriesService
-        .getAll());
+                .getAll());
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<CategoriesDto> getById(@PathVariable Long id){
+    public ResponseEntity<CategoriesDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok(categoriesService
-        .getById(id));
+                .getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<CategoriesDto> save(@RequestBody CategoriesDto categoriesDto){
+    public ResponseEntity<CategoriesDto> save(@RequestBody CategoriesDto categoriesDto) {
         return ResponseEntity.ok(categoriesService
-        .save(categoriesDto));
+                .save(categoriesDto));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<CategoriesDto> update(@RequestBody CategoriesDto categoriesDto, @PathVariable Long id){
+    public ResponseEntity<CategoriesDto> update(@RequestBody CategoriesDto categoriesDto, @PathVariable Long id) {
         categoriesDto.setId(id);
         return ResponseEntity.ok(categoriesService
-        .update(categoriesDto));
+                .update(categoriesDto));
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<String> delete(@PathVariable Long id){
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         categoriesService.delete(id);
         return ResponseEntity.ok("OK");
     }
